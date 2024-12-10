@@ -40,35 +40,35 @@ func (a *App) AddTodo(todoStr string) string {
 	slog.Info(todoStr)
 	todo := repository.Todo{}
 	json.Unmarshal([]byte(todoStr), &todo)
-	repository.AddTodo(todo)
+	repository.AddTodo(&todo)
 	return "success"
 }
 
 func (a *App) MarkTodo(todoStr string) string {
 	todo := repository.Todo{}
 	json.Unmarshal([]byte(todoStr), &todo)
-	repository.MarkTodo(todo)
+	repository.MarkTodo(&todo)
 	return "success"
 }
 
 func (a *App) RemoveTodo(todoStr string) string {
 	todo := repository.Todo{}
 	json.Unmarshal([]byte(todoStr), &todo)
-	repository.RemoveTodo(todo)
+	repository.RemoveTodo(&todo)
 	return "success"
 }
 
 func (a *App) UpdateTodo(todoStr string) string {
 	todo := repository.Todo{}
 	json.Unmarshal([]byte(todoStr), &todo)
-	repository.UpdateTodo(todo)
+	repository.UpdateTodo(&todo)
 	return "success"
 }
 
 func (a *App) ListTodo(pageStr string) string {
 	page := repository.Page{}
 	json.Unmarshal([]byte(pageStr), &page)
-	todos := repository.ListTodo(page)
+	todos := repository.ListTodo(&page)
 	result := PageResult[repository.Todo]{Code: 200, Message: "success", Data: todos}
 	jsonData, err := json.Marshal(result)
 	if err != nil {

@@ -49,7 +49,7 @@ func Init() {
 	db.AutoMigrate(&TodoTags{})
 }
 
-func AddTodo(todo Todo) {
+func AddTodo(todo *Todo) {
 	db, err := gorm.Open(sqlite.Open("D:\\data\\Todo\\Todo.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
@@ -98,7 +98,7 @@ func AddTodo(todo Todo) {
 	})
 }
 
-func UpdateTodo(todo Todo) {
+func UpdateTodo(todo *Todo) {
 	db, err := gorm.Open(sqlite.Open("D:\\data\\Todo\\Todo.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
@@ -113,7 +113,7 @@ func UpdateTodo(todo Todo) {
 	db.Model(&todo).Update("title", todo.Title)
 }
 
-func MarkTodo(todo Todo) {
+func MarkTodo(todo *Todo) {
 	db, err := gorm.Open(sqlite.Open("D:\\data\\Todo\\Todo.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
@@ -128,7 +128,7 @@ func MarkTodo(todo Todo) {
 	db.Model(&todo).Update("status", todo.Status)
 }
 
-func RemoveTodo(todo Todo) {
+func RemoveTodo(todo *Todo) {
 	db, err := gorm.Open(sqlite.Open("D:\\data\\Todo\\Todo.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
@@ -143,7 +143,7 @@ func RemoveTodo(todo Todo) {
 	db.Delete(&Todo{}, todo.Id)
 }
 
-func ListTodo(page Page) []Todo {
+func ListTodo(page *Page) []Todo {
 	db, err := gorm.Open(sqlite.Open("D:\\data\\Todo\\Todo.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
