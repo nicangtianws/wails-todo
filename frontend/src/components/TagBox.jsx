@@ -14,10 +14,11 @@ const TagBoxDiv = styled.div`
 `
 
 const TagSpan = styled.span`
-  border: 1px solid #aed5f7;
+  border: 1px solid ${(props) => (props.theme.bg1)};
   border-radius: 15px;
   padding: 5px;
-  background-color: ${(props) => (props.$selected ? '#aed5f7' : '#fff')};
+  background-color: ${(props) => (props.$selected ? props.theme.activeBg : props.theme.bg1)};
+  color: ${(props) => (props.$selected ? props.theme.activeFg : props.theme.fg)};
   input {
     outline: none;
     border: none;
@@ -25,20 +26,20 @@ const TagSpan = styled.span`
     border-radius: 15px;
   }
   &:hover {
-    background-color: #e097b99d;
-    color: #fffeee;
+    color: ${(props) => (props.theme.activeFg)};
+    background-color: ${(props) => (props.theme.activeBg)};
   }
   i {
     margin-left: 5px;
     &:hover {
-      color: red;
+      color: ${(props) => (props.theme.specAccent)};
     }
   }
 `
 
 const TagAddSpan = styled.span`
   :hover {
-    color: #db498d;
+    color: ${(props) => (props.theme.specAccent)};
   }
 `
 

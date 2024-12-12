@@ -13,6 +13,7 @@ const MainDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   padding-bottom: 50px;
+  background-color: ${(props) => (props.theme.bg)};
 `
 
 const LeftDiv = styled.div``
@@ -25,13 +26,13 @@ const MenuUl = styled.ul`
 `
 
 const MenuLi = styled.li`
-  background-color: ${(props) => (props.$active ? '#2894db' : '#80dfbbce')};
-  color: ${(props) => (props.$active ? '#eee' : '#000')};
+  background-color: ${(props) => (props.$active ? props.theme.activeBg : props.theme.bg1)};
+  color: ${(props) => (props.$active ? props.theme.activeFg : props.theme.fg)};
   margin: 5px;
   padding: 10px;
   border-radius: 50px;
   &:hover {
-    background-color: #419cd8c1;
+    background-color:  ${(props) => (props.theme.hover)};
   }
 `
 
@@ -45,7 +46,7 @@ const FooterDiv = styled.div`
   bottom: 0;
   width: 100%;
   height: 50px;
-  background-color: #d3d3d3;
+  background-color: ${(props) => (props.theme.bg1)};
 `
 
 function MenuList({ menus, activeTab, setActiveTab }) {

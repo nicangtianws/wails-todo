@@ -7,10 +7,10 @@ const SearchDiv = styled.div`
   flex-grow: 1;
   min-width: calc(100% - 64px);
   font-size: 16px;
-  border: 1px solid #aed5f7;
+  border: 1px solid ${(props) => (props.theme.bg1)};
   border-radius: 50px;
   &:focus-within {
-    border-color: #e65e9e;
+    border-color: ${(props) => (props.theme.activeBg)};
   }
   input {
     font-size: 16px;
@@ -24,8 +24,8 @@ const SearchDiv = styled.div`
     }
   }
   button {
-    background-color: #e487b29d;
-    color: #000;
+    background-color: ${(props) => (props.theme.bg1)};
+    color: ${(props) => (props.theme.fg)};
     text-decoration: none;
     border: none;
     border-radius: 50px;
@@ -33,8 +33,8 @@ const SearchDiv = styled.div`
     width: 32px;
     height: 32px;
     &:hover {
-      color: #eee;
-      background-color: #db498d;
+      color: ${(props) => (props.theme.activeFg)};
+      background-color: ${(props) => (props.theme.activeBg)};
     }
   }
 `

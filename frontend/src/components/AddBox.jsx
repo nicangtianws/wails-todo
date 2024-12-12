@@ -9,24 +9,24 @@ const AddBoxDiv = styled.div`
   input {
     min-width: calc(100% - 64px);
     font-size: 16px;
-    border: 1px solid #aed5f7;
+    border: 1px solid ${(props) => (props.theme.bg1)};
     border-radius: 50px;
     padding: 5px;
     &:focus {
-      border-color: #e65e9e;
+      border-color: ${(props) => (props.theme.activeBg)};
       outline: none;
     }
   }
   button {
     width: 64px;
-    background-color: #e6a1c1;
-    color: #000;
+    background-color: ${(props) => (props.theme.bg1)};
+    color: ${(props) => (props.theme.fg)};
     border: none;
     border-radius: 50px;
     margin-left: 10px;
     &:hover {
-      color: #eee;
-      background-color: #d6669a;
+      color: ${(props) => (props.theme.activeFg)};
+      background-color: ${(props) => (props.theme.activeBg)};
     }
   }
 `

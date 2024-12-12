@@ -9,7 +9,7 @@ const ItemLi = styled.li`
   min-width: 164px;
   min-height: 30px;
   margin: 10px;
-  background-color: aliceblue;
+  background-color: ${(props) => (props.theme.bg2)};
   border-radius: 50px;
 `
 
@@ -19,35 +19,35 @@ const TodoItemDiv = styled.div`
   align-items: center;
   .btn-edit {
     border: none;
-    /* background-color: #e6a1c1; */
+    background-color: ${(props) => (props.theme.bg1)};
     border-radius: 50px;
     &:hover {
-      background-color: #e6a1c1;
-      color: aliceblue;
+      background-color: ${(props) => props.theme.activeBg};
+      color: ${(props) => props.theme.activeFg};
     }
   }
   .btn-del {
     border: none;
     border-radius: 50px;
     &:hover {
-      background-color: red;
-      color: aliceblue;
+      background-color: ${(props) => props.theme.specAccent};
+      color: ${(props) => (props.theme.activeFg)};
     }
   }
   input {
     min-width: calc(100% - 64px);
     font-size: 16px;
-    border: 1px solid #aed5f7;
+    border: 1px solid ${(props) => (props.theme.bg1)};
     border-radius: 50px;
     padding: 10px;
     &:focus {
-      border-color: #e65e9e;
+      border-color: ${(props) => (props.theme.activeBg)};
       outline: none;
     }
   }
 `
 const TodoContentSpan = styled.span`
-  background-color: ${(props) => (props.$done ? '#dddddd' : '#c9e2f8')};
+  background-color: ${(props) => (props.$done ? props.theme.bg3 : props.theme.bg1)};
   padding: 10px;
   border-radius: 50px;
   text-decoration: ${(props) => (props.$done ? 'line-through' : 'none')};
@@ -58,10 +58,10 @@ const DelMarkBtn = styled.button`
   align-content: center;
   background-color: transparent;
   border: none;
-  color: red;
+  color: ${(props) => props.theme.specAccent};
   &:hover {
-    background-color: red;
-    color: aliceblue;
+    background-color: ${(props) => props.theme.specAccent};
+    color: ${(props) => (props.theme.activeFg)};
     border-radius: 50px;
   }
 `
