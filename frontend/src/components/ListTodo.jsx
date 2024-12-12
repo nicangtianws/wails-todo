@@ -47,7 +47,7 @@ const TodoItemDiv = styled.div`
   }
 `
 const TodoContentSpan = styled.span`
-  background-color: ${(props) => (props.$done ? props.theme.bg3 : props.theme.bg1)};
+  background-color: ${(props) => (props.$done ? props.theme.hover : props.theme.bg1)};
   padding: 10px;
   border-radius: 50px;
   text-decoration: ${(props) => (props.$done ? 'line-through' : 'none')};
